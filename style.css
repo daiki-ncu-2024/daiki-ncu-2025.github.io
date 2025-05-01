@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+#skills .row, #education .row {
+    text-align: center;
+}
+
+#contact {
+    text-align: center;
+    margin-top: 20px;
+}
+

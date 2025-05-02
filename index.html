@@ -8,7 +8,23 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
         <link rel="stylesheet" href="css/style.css">
     </head>
-    
+    <script><!--javascriptの導入、ダークモードを作れます-->
+        function toggleDarkMode() {
+          document.body.classList.toggle('dark-mode');
+        }
+          // 自動ダークモード適用
+  window.addEventListener('DOMContentLoaded', () => {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.body.classList.add('dark-mode');
+    }
+  });
+
+  // 手動切り替えボタン（前の内容）
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+  }
+      </script>
+      
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">ポートフォリオ</a>
@@ -21,6 +37,8 @@
                 <li class="nav-item"><a class="nav-link" href="#activities">ゼミ活動</a></li>
                 <li class="nav-item"><a class="nav-link" href="#skills">スキル・学歴・連絡先</a></li>
             </ul>
+            <button class="btn btn-sm btn-outline-secondary ml-auto" onclick="toggleDarkMode()">ダークモード切替</button>
+
         </div>
     </nav>
     
@@ -53,11 +71,11 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
-                    <img src="data_analysis.png" class="card-img-top" alt="データ分析プロジェクト">
+                    <img src="data_analysis.png" class="card-img-top" alt="2024年のプロジェクト">
                     <div class="card-body">
-                        <h5 class="card-title">データ分析プロジェクト</h5>
+                        <h5 class="card-title">2024年のプロジェクト</h5>
                         <p class="card-text">プロジェクトの概要</p>
-                        <a href="data_analysis.html" class="btn btn-primary">詳細を見る</a>
+                        <a href="https://daiki-ncu-2024.github.io/mypage.html" class="btn btn-primary">詳細を見る</a>
                     </div>
                 </div>
             </div>
@@ -67,7 +85,7 @@
                     <div class="card-body">
                         <h5 class="card-title">チャットボット開発</h5>
                         <p class="card-text">開発の目的</p>
-                        <a href="chatbot.html" class="btn btn-primary">詳細を見る</a>
+                        <a href="https://udify.app/chat/8re711ITHf0CKvjr" class="btn btn-primary">詳細を見る</a>
                     </div>
                 </div>
             </div>

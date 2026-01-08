@@ -1,130 +1,502 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>山口大輝のポートフォリオ</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <script><!--javascriptの導入、ダークモードを作れます-->
-        function toggleDarkMode() {
-          document.body.classList.toggle('dark-mode');
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山口大輝 - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Markdown Parser for AI response -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#2563eb', // Blue 600
+                        dark: '#0f172a',    // Slate 900
+                    }
+                }
+            }
         }
-          // 自動ダークモード適用
-  window.addEventListener('DOMContentLoaded', () => {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.body.classList.add('dark-mode');
-    }
-  });
+    </script>
+    <style>
+        body { font-family: "Noto Sans JP", sans-serif; }
+        
+        /* スクロールバー設定 */
+        .custom-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: transparent; }
+        .custom-scroll::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 20px; }
+        .custom-scroll::-webkit-scrollbar-thumb:hover { background-color: #94a3b8; }
+        .dark .custom-scroll::-webkit-scrollbar-thumb { background-color: #334155; }
+        .dark .custom-scroll::-webkit-scrollbar-thumb:hover { background-color: #475569; }
 
-  // 手動切り替えボタン（前の内容）
-  function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-  }
-      </script>
-      
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">ポートフォリオ</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="#home">ホーム</a></li>
-                <li class="nav-item"><a class="nav-link" href="#activities">ゼミ活動</a></li>
-                <li class="nav-item"><a class="nav-link" href="#skills">スキル・学歴・連絡先</a></li>
-            </ul>
-            <button class="btn btn-sm btn-outline-secondary ml-auto" onclick="toggleDarkMode()">ダークモード切替</button>
+        /* 背景パターン設定 (強化版) */
+        .bg-tech-economy {
+            background-color: #f0f4f8; /* 少し濃い目のベース色 */
+            /* 方眼紙グリッド - 少し濃く */
+            background-image: 
+                linear-gradient(to right, rgba(37, 99, 235, 0.08) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(37, 99, 235, 0.08) 1px, transparent 1px);
+            background-size: 32px 32px; /* グリッドを少し細かく */
+            position: relative;
+        }
+        
+        /* チャート風の背景装飾 - 存在感をアップ */
+        .bg-tech-economy::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            /* より鮮明なチャートライン */
+            background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 1200 800' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-100 800 L300 600 L500 650 L800 300 L1300 100' fill='none' stroke='rgba(37, 99, 235, 0.08)' stroke-width='100' stroke-linecap='round'/%3E%3Cpath d='M-100 850 L350 650 L550 700 L850 350 L1300 150' fill='none' stroke='rgba(37, 99, 235, 0.05)' stroke-width='50' stroke-linecap='round'/%3E%3Ccircle cx='800' cy='300' r='150' fill='rgba(37, 99, 235, 0.03)' /%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
 
-        </div>
-    </nav>
-    
+        .dark .bg-tech-economy {
+            background-color: #0b1120; /* より深いダーク */
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        }
+        .dark .bg-tech-economy::before {
+            background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 1200 800' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-100 800 L300 600 L500 650 L800 300 L1300 100' fill='none' stroke='rgba(255, 255, 255, 0.05)' stroke-width='100' stroke-linecap='round'/%3E%3Cpath d='M-100 850 L350 650 L550 700 L850 350 L1300 150' fill='none' stroke='rgba(255, 255, 255, 0.03)' stroke-width='50' stroke-linecap='round'/%3E%3Ccircle cx='800' cy='300' r='150' fill='rgba(255, 255, 255, 0.02)' /%3E%3C/svg%3E");
+        }
 
-    <section id="home" class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <img src="IMG_1445.jpg" alt="プロフィール写真" class="img-fluid rounded-circle">
+        /* リサイザーのスタイル */
+        .resizer {
+            width: 4px;
+            cursor: col-resize;
+            background-color: #e2e8f0;
+            transition: background-color 0.2s;
+            z-index: 50;
+        }
+        .resizer:hover, .resizer.resizing {
+            background-color: #3b82f6; /* Blue-500 */
+        }
+        .dark .resizer {
+            background-color: #334155;
+        }
+        .dark .resizer:hover, .dark .resizer.resizing {
+            background-color: #60a5fa;
+        }
+
+        /* AI出力エリアのスタイル */
+        .markdown-body ul { list-style-type: disc; margin-left: 1.5em; margin-bottom: 1em; }
+        .markdown-body ol { list-style-type: decimal; margin-left: 1.5em; margin-bottom: 1em; }
+        .markdown-body strong { color: #2563eb; }
+        .dark .markdown-body strong { color: #60a5fa; }
+    </style>
+</head>
+<body class="bg-tech-economy text-slate-800 dark:text-slate-200 transition-colors duration-300 h-screen overflow-hidden flex flex-col md:flex-row">
+
+    <!-- 左サイドバー（プロフィール） -->
+    <!-- md以上の場合は幅を固定(初期値)、JavaScriptで制御 -->
+    <aside id="sidebar" class="w-full md:w-[360px] bg-white/95 dark:bg-slate-800/95 backdrop-blur-md border-r border-gray-200 dark:border-slate-700 overflow-y-auto custom-scroll z-20 flex-shrink-0 shadow-xl shadow-blue-900/5 transition-colors duration-300">
+        <div class="p-8 flex flex-col min-h-full">
+            
+            <!-- ダークモード切替 -->
+            <div class="flex justify-end md:justify-start mb-6">
+                <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors text-gray-500 dark:text-gray-400">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:block"></i>
+                </button>
             </div>
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-body">
-                        <h1 class="card-title">自己紹介</h1>
-                        <p class="card-text">
-                            <i class="fas fa-user"></i> 名前: 山田太郎<br>
-                            <i class="fas fa-university"></i> 学部: A大学経済学部会計ファイナンス学科<br>
-                            <i class="fas fa-graduation-cap"></i> 学年: 4年<br>
-                            <i class="fas fa-book"></i> 専攻: 経営情報ゼミ<br>
-                            <i class="fas fa-info-circle"></i> ゼミの概要: バイブコーディングに挑戦することを中心にITスキルの利活用を勉強する。
+
+            <!-- プロフィール写真 -->
+            <div class="w-32 h-32 mx-auto md:mx-0 mb-6 relative group">
+                <div class="absolute inset-0 bg-blue-500 rounded-full blur opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
+                <img src="IMG_1445.jpg" alt="プロフィール" 
+                     class="relative w-full h-full object-cover rounded-full shadow-lg border-4 border-white dark:border-slate-700"
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x400/e2e8f0/64748b?text=Me';">
+                <!-- 所属を示すアイコンバッジ -->
+                <div class="absolute bottom-0 right-0 bg-white dark:bg-slate-800 p-2 rounded-full border border-gray-200 dark:border-slate-600 shadow-sm" title="Economics & IT">
+                    <i class="fas fa-chart-line text-primary text-lg"></i>
+                </div>
+            </div>
+
+            <!-- 名前・所属 -->
+            <div class="text-center md:text-left mb-8">
+                <h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">山田 太郎</h1>
+                <p class="text-sm text-primary font-bold tracking-wide mb-1 uppercase">
+                    <i class="fas fa-university mr-1"></i> A University
+                </p>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mb-6 font-medium">経済学部 会計ファイナンス学科 / 経営情報ゼミ</p>
+                
+                <div class="p-5 bg-blue-50/80 dark:bg-slate-700/50 rounded-xl text-left border-l-4 border-primary shadow-sm backdrop-blur-sm">
+                    <p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
+                        「バイブコーディング」×「経済データ分析」<br>
+                        <span class="text-xs font-normal mt-2 block opacity-80">
+                            ITスキルを活用し、経済情報の新しい可視化と価値創造に挑戦しています。
+                        </span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- スキルタグ -->
+            <div class="mb-8">
+                <h2 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4 flex items-center border-b border-gray-100 dark:border-slate-700 pb-2">
+                    <i class="fas fa-code mr-2"></i> Tech Stack
+                </h2>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1.5 bg-white dark:bg-slate-700 border border-blue-100 dark:border-slate-600 text-blue-600 dark:text-blue-300 rounded-lg text-xs font-bold shadow-sm hover:shadow transition-shadow cursor-default">Python</span>
+                    <span class="px-3 py-1.5 bg-white dark:bg-slate-700 border border-blue-100 dark:border-slate-600 text-blue-600 dark:text-blue-300 rounded-lg text-xs font-bold shadow-sm hover:shadow transition-shadow cursor-default">Pandas</span>
+                    <span class="px-3 py-1.5 bg-white dark:bg-slate-700 border border-orange-100 dark:border-slate-600 text-orange-600 dark:text-orange-300 rounded-lg text-xs font-bold shadow-sm hover:shadow transition-shadow cursor-default">HTML/CSS</span>
+                    <span class="px-3 py-1.5 bg-white dark:bg-slate-700 border border-green-100 dark:border-slate-600 text-green-600 dark:text-green-300 rounded-lg text-xs font-bold shadow-sm hover:shadow transition-shadow cursor-default">Data Analysis</span>
+                    <span class="px-3 py-1.5 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg text-xs font-bold shadow-sm flex items-center hover:opacity-90 transition-opacity cursor-default"><i class="fas fa-sparkles mr-1 text-[10px]"></i> Gemini API</span>
+                </div>
+            </div>
+
+            <!-- 連絡先・SNS -->
+            <div class="mt-auto pt-8 border-t border-gray-100 dark:border-slate-700">
+                <div class="flex space-x-4 justify-center md:justify-start">
+                    <a href="https://instagram.com/yamaguchiiii1025" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 text-white shadow-md hover:shadow-lg hover:-translate-y-1 transition-all">
+                        <i class="fab fa-instagram text-lg"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 dark:bg-slate-700 text-white shadow-md hover:shadow-lg hover:-translate-y-1 transition-all">
+                        <i class="fab fa-github text-lg"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white shadow-md hover:shadow-lg hover:-translate-y-1 transition-all">
+                        <i class="fas fa-envelope text-lg"></i>
+                    </a>
+                </div>
+                <p class="text-[10px] text-gray-400 text-center md:text-left mt-6 font-mono tracking-wider">
+                    &copy; 2024 DAIKI YAMAGUCHI
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    <!-- リサイザー（ドラッグバー）: PCのみ表示 -->
+    <div id="resizer" class="hidden md:block resizer flex-shrink-0 relative">
+        <!-- つまみ部分の装飾 -->
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1 h-8 bg-gray-400 rounded-full opacity-50"></div>
+    </div>
+
+    <!-- メインコンテンツ（右側） -->
+    <main class="flex-1 overflow-y-auto custom-scroll relative z-10 p-4 md:p-8 lg:p-12">
+        
+        <div class="max-w-7xl mx-auto pb-20">
+            <header class="mb-8 md:mb-12 flex items-end border-b-2 border-primary/20 pb-4">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">Portfolio</h2>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">
+                        <i class="fas fa-folder-open mr-1"></i> ゼミ活動・個人制作アーカイブ
+                    </p>
+                </div>
+            </header>
+
+            <!-- 制作物グリッド -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+
+                <!-- ✨ AI Tool Card -->
+                <article class="md:col-span-2 group bg-gradient-to-br from-white to-blue-50 dark:from-slate-800 dark:to-slate-900 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border-2 border-blue-200 dark:border-blue-900/50 flex flex-col md:flex-row relative">
+                    <div class="absolute top-0 right-0 p-2">
+                        <span class="px-2 py-1 bg-blue-600 text-white text-[10px] font-bold rounded shadow-sm flex items-center">
+                            <i class="fas fa-sparkles mr-1"></i> Powered by Gemini
+                        </span>
+                    </div>
+                    
+                    <div class="p-6 md:p-8 flex-1">
+                        <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white flex items-center">
+                            <span class="bg-blue-100 dark:bg-blue-900 p-2 rounded-lg mr-3 text-primary">
+                                <i class="fas fa-brain"></i>
+                            </span>
+                            経済データ分析テーマ自動生成AI
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 leading-relaxed">
+                            Gemini APIを活用した実験的機能です。興味のあるキーワードを入力すると、経済学とデータ分析を組み合わせた「研究テーマ」「仮説」「分析手法」をAIが提案します。
                         </p>
+                        
+                        <!-- Input Area -->
+                        <div class="flex flex-col sm:flex-row gap-3 mb-4">
+                            <input type="text" id="aiInput" placeholder="例：コーヒーの価格、少子化、円安..." 
+                                   class="flex-1 px-4 py-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all shadow-sm">
+                            <button onclick="generateIdea()" id="aiButton"
+                                    class="px-6 py-3 bg-primary hover:bg-blue-700 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center whitespace-nowrap">
+                                <span>アイデアを生成</span>
+                                <i class="fas fa-magic ml-2"></i>
+                            </button>
+                        </div>
+
+                        <!-- Result Area -->
+                        <div id="aiResult" class="hidden mt-4 p-6 rounded-lg bg-white/60 dark:bg-slate-800/60 border border-blue-100 dark:border-slate-700 text-sm text-slate-700 dark:text-slate-300 markdown-body min-h-[100px] backdrop-blur-sm">
+                            <!-- AI output will appear here -->
+                        </div>
+                        <div id="aiLoading" class="hidden mt-4 text-center py-6">
+                            <div class="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-primary mb-2"></div>
+                            <p class="text-xs text-gray-500">AIが分析中...<br>少し時間がかかる場合があります</p>
+                        </div>
                     </div>
-                </div>
+                </article>
+                
+                <!-- 作品1: データ分析 -->
+                <article class="group bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 border border-gray-200 dark:border-slate-700 flex flex-col">
+                    <div class="relative h-52 overflow-hidden bg-slate-100 dark:bg-slate-700 border-b border-gray-100 dark:border-slate-700">
+                        <img src="data_analysis.png" alt="2024 Project" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/3b82f6/white?text=Economics+Data';">
+                        <div class="absolute top-3 left-3">
+                            <span class="px-2 py-1 bg-white/95 dark:bg-slate-900/95 backdrop-blur text-[10px] font-bold uppercase tracking-wider rounded border border-gray-200 dark:border-slate-600 text-blue-600">
+                                <i class="fas fa-chart-bar mr-1"></i> Data Analysis
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">2024年のプロジェクト</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-1 leading-relaxed">
+                            経済データを収集・分析し、トレンドを可視化。Python(Pandas)を使用し、統計的なアプローチで課題解決に取り組みました。
+                        </p>
+                        <div class="mt-auto pt-4 border-t border-gray-100 dark:border-slate-700/50 flex justify-between items-center">
+                            <span class="text-xs text-gray-400 font-mono bg-gray-100 dark:bg-slate-700 px-2 py-1 rounded">Python / Pandas</span>
+                            <a href="https://daiki-ncu-2024.github.io/mypage.html" class="text-sm font-bold text-primary hover:text-blue-700 transition-colors group-hover:translate-x-1 duration-300 inline-flex items-center">
+                                View <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 作品2: チャットボット -->
+                <article class="group bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 border border-gray-200 dark:border-slate-700 flex flex-col">
+                    <div class="relative h-52 overflow-hidden bg-slate-100 dark:bg-slate-700 border-b border-gray-100 dark:border-slate-700">
+                        <img src="chatbot.png" alt="Chatbot" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/ec4899/white?text=AI+Chatbot';">
+                        <div class="absolute top-3 left-3">
+                            <span class="px-2 py-1 bg-white/95 dark:bg-slate-900/95 backdrop-blur text-[10px] font-bold uppercase tracking-wider rounded border border-gray-200 dark:border-slate-600 text-pink-500">
+                                <i class="fas fa-robot mr-1"></i> AI Application
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">チャットボット開発</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-1 leading-relaxed">
+                            特定のドメイン知識を学習させたAIチャットボット。ユーザーの質問に対して自然な対話形式で応答します。
+                        </p>
+                        <div class="mt-auto pt-4 border-t border-gray-100 dark:border-slate-700/50 flex justify-between items-center">
+                            <span class="text-xs text-gray-400 font-mono bg-gray-100 dark:bg-slate-700 px-2 py-1 rounded">LLM / Web App</span>
+                            <a href="https://udify.app/chat/8re711ITHf0CKvjr" class="text-sm font-bold text-primary hover:text-blue-700 transition-colors group-hover:translate-x-1 duration-300 inline-flex items-center">
+                                Try App <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 作品3: ブログ -->
+                <article class="group bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 border border-gray-200 dark:border-slate-700 flex flex-col">
+                    <div class="relative h-52 overflow-hidden bg-slate-100 dark:bg-slate-700 border-b border-gray-100 dark:border-slate-700">
+                        <img src="blogziburi.png" alt="IT Blog" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/10b981/white?text=Tech+Blog';">
+                        <div class="absolute top-3 left-3">
+                            <span class="px-2 py-1 bg-white/95 dark:bg-slate-900/95 backdrop-blur text-[10px] font-bold uppercase tracking-wider rounded border border-gray-200 dark:border-slate-600 text-green-600">
+                                <i class="fas fa-pen-nib mr-1"></i> Tech Blog
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">IT技術ブログ</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-1 leading-relaxed">
+                            日々の学習内容や技術的なつまづき、解決策をアウトプット。知識の定着と共有を目的に運営しています。
+                        </p>
+                        <div class="mt-auto pt-4 border-t border-gray-100 dark:border-slate-700/50 flex justify-between items-center">
+                            <span class="text-xs text-gray-400 font-mono bg-gray-100 dark:bg-slate-700 px-2 py-1 rounded">WordPress</span>
+                            <a href="https://ideamarkets.info/archives/author/dyamaguchi" class="text-sm font-bold text-primary hover:text-blue-700 transition-colors group-hover:translate-x-1 duration-300 inline-flex items-center">
+                                Read <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 作品4: 卒業制作 -->
+                <article class="group bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 border border-gray-200 dark:border-slate-700 flex flex-col">
+                    <div class="relative h-52 overflow-hidden bg-slate-50 dark:bg-slate-700/50 flex items-center justify-center border-b border-gray-100 dark:border-slate-700">
+                        <i class="fas fa-graduation-cap text-5xl text-gray-300 dark:text-gray-600 group-hover:scale-110 transition-transform duration-500"></i>
+                        <div class="absolute top-3 left-3">
+                            <span class="px-2 py-1 bg-white/95 dark:bg-slate-900/95 backdrop-blur text-[10px] font-bold uppercase tracking-wider rounded border border-gray-200 dark:border-slate-600 text-purple-600">
+                                <i class="fas fa-scroll mr-1"></i> Thesis
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">卒業制作（準備中）</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-1 leading-relaxed">
+                            これまでの学習の集大成として、〇〇をテーマに研究・開発を行っています。
+                        </p>
+                        <div class="mt-auto pt-4 border-t border-gray-100 dark:border-slate-700/50 flex justify-between items-center">
+                            <span class="text-xs text-gray-400 font-mono bg-gray-100 dark:bg-slate-700 px-2 py-1 rounded">Research</span>
+                            <span class="text-sm font-medium text-gray-400 cursor-not-allowed">
+                                Coming Soon...
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 作品5: Vlog -->
+                <article class="md:col-span-2 group bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 border border-gray-200 dark:border-slate-700">
+                    <div class="flex flex-col md:flex-row h-full">
+                        <div class="md:w-2/5 relative h-56 md:h-auto overflow-hidden bg-slate-800">
+                            <img src="vlog_thumbnail.jpg" alt="Vlog" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 opacity-90"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/800x600/f59e0b/white?text=Vlog+Movie';">
+                            <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
+                                <div class="w-14 h-14 bg-white/90 rounded-full flex items-center justify-center pl-1 shadow-lg group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-play text-xl text-orange-500"></i>
+                                </div>
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span class="px-2 py-1 bg-white/95 dark:bg-slate-900/95 backdrop-blur text-[10px] font-bold uppercase tracking-wider rounded border border-gray-200 dark:border-slate-600 text-orange-500">
+                                    <i class="fas fa-video mr-1"></i> Vlog
+                                </span>
+                            </div>
+                        </div>
+                        <div class="md:w-3/5 p-8 flex flex-col justify-center">
+                            <h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">ゼミ旅行 Vlog</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-5 leading-relaxed">
+                                ゼミ活動の一環として訪れた地域の記録をVlog形式でまとめました。撮影から編集までを担当し、現地の空気感を伝えることに注力しました。
+                            </p>
+                            <div class="mt-auto flex justify-between items-center">
+                                <span class="text-xs text-gray-400 font-mono bg-gray-100 dark:bg-slate-700 px-2 py-1 rounded">Premiere Pro</span>
+                                <a href="#" class="text-sm font-bold text-primary hover:text-blue-700 transition-colors inline-flex items-center">
+                                    Watch Video <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
             </div>
         </div>
-    </section>
-    
+        
+        <!-- SP用フッター -->
+        <footer class="mt-16 pt-8 border-t border-gray-200/50 dark:border-slate-700/50 md:hidden text-center text-xs text-gray-500">
+            &copy; 2024 Daiki Yamaguchi
+        </footer>
+    </main>
 
-    <section id="activities" class="container">
-        <h2>ゼミ活動</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="data_analysis.png" class="card-img-top" alt="2024年のプロジェクト">
-                    <div class="card-body">
-                        <h5 class="card-title">2024年のプロジェクト</h5>
-                        <p class="card-text">プロジェクトの概要</p>
-                        <a href="https://daiki-ncu-2024.github.io/mypage.html" class="btn btn-primary">詳細を見る</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="chatbot.png" class="card-img-top" alt="チャットボット開発">
-                    <div class="card-body">
-                        <h5 class="card-title">チャットボット開発</h5>
-                        <p class="card-text">開発の目的</p>
-                        <a href="https://udify.app/chat/8re711ITHf0CKvjr" class="btn btn-primary">詳細を見る</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="blogziburi.png" class="card-img-top" alt="ITブログ">
-                    <div class="card-body">
-                        <h5 class="card-title">ITブログ</h5>
-                        <p class="card-text">ブログ記事の概要</p>
-                        <a href="https://ideamarkets.info/archives/author/dyamaguchi" class="btn btn-primary">詳細を見る</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <script>
+        // ダークモード設定
+        function toggleDarkMode() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
 
-    <section id="skills" class="container">
-        <h2>スキル・学歴・連絡先</h2>
-        <div class="row text-center">
-            <div class="col-md-4">
-                <h3>スキル</h3>
-                <p>使用可能言語: Python, HTML, CSS<br>
-                   経済データ分析ができる</p>
-            </div>
-            <div class="col-md-4">
-                <h3>学歴</h3>
-                <p>大学名: A大学<br>
-                   学部: 経済学部会計ファイナンス学科<br>
-                   卒業予定日: 2025年3月</p>
-            </div>
-            <div class="col-md-4">
-                <h3>連絡先</h3>
-                <p>インスタグラム: yamaguchiiii1025</p>
-            </div>
-        </div>
-    </section>
+        // 初期設定
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        }
+        initTheme();
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        // ------------------------------
+        // リサイズ機能 (Resizer)
+        // ------------------------------
+        document.addEventListener('DOMContentLoaded', () => {
+            const sidebar = document.getElementById('sidebar');
+            const resizer = document.getElementById('resizer');
+            let isResizing = false;
+
+            // マウスダウンでドラッグ開始
+            resizer.addEventListener('mousedown', (e) => {
+                isResizing = true;
+                resizer.classList.add('resizing');
+                document.body.style.cursor = 'col-resize';
+                document.body.classList.add('select-none'); // テキスト選択防止
+            });
+
+            // マウス移動でリサイズ実行
+            document.addEventListener('mousemove', (e) => {
+                if (!isResizing) return;
+                
+                // 幅の計算（最小幅250px、最大幅600px程度に制限）
+                const newWidth = Math.max(250, Math.min(e.clientX, 600));
+                sidebar.style.width = `${newWidth}px`;
+            });
+
+            // マウスアップでドラッグ終了
+            document.addEventListener('mouseup', () => {
+                if (isResizing) {
+                    isResizing = false;
+                    resizer.classList.remove('resizing');
+                    document.body.style.cursor = '';
+                    document.body.classList.remove('select-none');
+                }
+            });
+        });
+
+        // ------------------------------
+        // Gemini API Interaction Logic
+        // ------------------------------
+        async function generateIdea() {
+            const inputField = document.getElementById('aiInput');
+            const resultDiv = document.getElementById('aiResult');
+            const loadingDiv = document.getElementById('aiLoading');
+            const topic = inputField.value.trim();
+            const apiKey = ""; // API key is injected by the environment
+
+            if (!topic) {
+                alert("キーワードを入力してください。");
+                return;
+            }
+
+            // UIの切り替え
+            resultDiv.classList.add('hidden');
+            loadingDiv.classList.remove('hidden');
+
+            const systemPrompt = "あなたは経済学とデータサイエンスの専門家です。ユーザーが入力したキーワードに基づいて、大学生の卒業研究に適した「経済×データ分析」プロジェクトのアイデアを1つ提案してください。出力はMarkdown形式で、以下の構成にしてください：\n\n### 📝 研究タイトル\n（キャッチーでアカデミックなタイトル）\n\n### 💡 仮説\n（どのような経済事象を証明しようとするか）\n\n### 📊 分析アプローチ\n1. **使用データ**: （オープンデータなど）\n2. **分析手法**: （回帰分析、時系列分析、テキストマイニングなど）\n3. **Pythonライブラリ**: （Pandas, Matplotlib, Scikit-learnなど具体的に）";
+
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        contents: [{
+                            parts: [{ text: topic }]
+                        }],
+                        systemInstruction: {
+                            parts: [{ text: systemPrompt }]
+                        }
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('API request failed');
+                }
+
+                const data = await response.json();
+                const aiText = data.candidates?.[0]?.content?.parts?.[0]?.text || "申し訳ありません。アイデアを生成できませんでした。";
+
+                // MarkdownをHTMLに変換して表示
+                resultDiv.innerHTML = marked.parse(aiText);
+                resultDiv.classList.remove('hidden');
+
+            } catch (error) {
+                console.error('Error:', error);
+                resultDiv.innerHTML = '<p class="text-red-500">エラーが発生しました。しばらく経ってから再度お試しください。</p>';
+                resultDiv.classList.remove('hidden');
+            } finally {
+                loadingDiv.classList.add('hidden');
+            }
+        }
+    </script>
 </body>
 </html>

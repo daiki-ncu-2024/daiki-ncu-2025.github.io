@@ -129,9 +129,9 @@
 
             <!-- 名前・所属 -->
             <div class="text-center md:text-left mb-8">
-                <h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">山田 太郎</h1>
+                <h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">山口大輝</h1>
                 <p class="text-sm text-primary font-bold tracking-wide mb-1 uppercase">
-                    <i class="fas fa-university mr-1"></i> A University
+                    <i class="fas fa-university mr-1"></i> nagoya city university
                 </p>
                 <p class="text-xs text-gray-500 dark:text-gray-400 mb-6 font-medium">経済学部 会計ファイナンス学科 / 経営情報ゼミ</p>
                 
@@ -155,21 +155,15 @@
                     <span class="px-3 py-1.5 bg-white dark:bg-slate-700 border border-blue-100 dark:border-slate-600 text-blue-600 dark:text-blue-300 rounded-lg text-xs font-bold shadow-sm hover:shadow transition-shadow cursor-default">Pandas</span>
                     <span class="px-3 py-1.5 bg-white dark:bg-slate-700 border border-orange-100 dark:border-slate-600 text-orange-600 dark:text-orange-300 rounded-lg text-xs font-bold shadow-sm hover:shadow transition-shadow cursor-default">HTML/CSS</span>
                     <span class="px-3 py-1.5 bg-white dark:bg-slate-700 border border-green-100 dark:border-slate-600 text-green-600 dark:text-green-300 rounded-lg text-xs font-bold shadow-sm hover:shadow transition-shadow cursor-default">Data Analysis</span>
-                    <span class="px-3 py-1.5 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg text-xs font-bold shadow-sm flex items-center hover:opacity-90 transition-opacity cursor-default"><i class="fas fa-sparkles mr-1 text-[10px]"></i> Gemini API</span>
+                    <span class="px-3 py-1.5 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg text-xs font-bold shadow-sm flex items-center hover:opacity-90 transition-opacity cursor-default"><i class="fas fa-sparkles mr-1 text-[10px]"></i> Gemini CLI</span>
                 </div>
             </div>
 
             <!-- 連絡先・SNS -->
             <div class="mt-auto pt-8 border-t border-gray-100 dark:border-slate-700">
                 <div class="flex space-x-4 justify-center md:justify-start">
-                    <a href="https://instagram.com/yamaguchiiii1025" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 text-white shadow-md hover:shadow-lg hover:-translate-y-1 transition-all">
-                        <i class="fab fa-instagram text-lg"></i>
-                    </a>
-                    <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 dark:bg-slate-700 text-white shadow-md hover:shadow-lg hover:-translate-y-1 transition-all">
+                    <a href="https://github.com/daiki-ncu-2024" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 dark:bg-slate-700 text-white shadow-md hover:shadow-lg hover:-translate-y-1 transition-all">
                         <i class="fab fa-github text-lg"></i>
-                    </a>
-                    <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white shadow-md hover:shadow-lg hover:-translate-y-1 transition-all">
-                        <i class="fas fa-envelope text-lg"></i>
                     </a>
                 </div>
                 <p class="text-[10px] text-gray-400 text-center md:text-left mt-6 font-mono tracking-wider">
@@ -201,66 +195,29 @@
             <!-- 制作物グリッド -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
 
-                <!-- ✨ AI Tool Card -->
-                <article class="md:col-span-2 group bg-gradient-to-br from-white to-blue-50 dark:from-slate-800 dark:to-slate-900 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border-2 border-blue-200 dark:border-blue-900/50 flex flex-col md:flex-row relative">
-                    <div class="absolute top-0 right-0 p-2">
-                        <span class="px-2 py-1 bg-blue-600 text-white text-[10px] font-bold rounded shadow-sm flex items-center">
-                            <i class="fas fa-sparkles mr-1"></i> Powered by Gemini
-                        </span>
-                    </div>
-                    
-                    <div class="p-6 md:p-8 flex-1">
-                        <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white flex items-center">
-                            <span class="bg-blue-100 dark:bg-blue-900 p-2 rounded-lg mr-3 text-primary">
-                                <i class="fas fa-brain"></i>
-                            </span>
-                            経済データ分析テーマ自動生成AI
-                        </h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 leading-relaxed">
-                            Gemini APIを活用した実験的機能です。興味のあるキーワードを入力すると、経済学とデータ分析を組み合わせた「研究テーマ」「仮説」「分析手法」をAIが提案します。
-                        </p>
-                        
-                        <!-- Input Area -->
-                        <div class="flex flex-col sm:flex-row gap-3 mb-4">
-                            <input type="text" id="aiInput" placeholder="例：コーヒーの価格、少子化、円安..." 
-                                   class="flex-1 px-4 py-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all shadow-sm">
-                            <button onclick="generateIdea()" id="aiButton"
-                                    class="px-6 py-3 bg-primary hover:bg-blue-700 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center whitespace-nowrap">
-                                <span>アイデアを生成</span>
-                                <i class="fas fa-magic ml-2"></i>
-                            </button>
-                        </div>
-
-                        <!-- Result Area -->
-                        <div id="aiResult" class="hidden mt-4 p-6 rounded-lg bg-white/60 dark:bg-slate-800/60 border border-blue-100 dark:border-slate-700 text-sm text-slate-700 dark:text-slate-300 markdown-body min-h-[100px] backdrop-blur-sm">
-                            <!-- AI output will appear here -->
-                        </div>
-                        <div id="aiLoading" class="hidden mt-4 text-center py-6">
-                            <div class="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-primary mb-2"></div>
-                            <p class="text-xs text-gray-500">AIが分析中...<br>少し時間がかかる場合があります</p>
-                        </div>
-                    </div>
-                </article>
-                
                 <!-- 作品1: データ分析 -->
                 <article class="group bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 border border-gray-200 dark:border-slate-700 flex flex-col">
-                    <div class="relative h-52 overflow-hidden bg-slate-100 dark:bg-slate-700 border-b border-gray-100 dark:border-slate-700">
-                        <img src="data_analysis.png" alt="2024 Project" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/3b82f6/white?text=Economics+Data';">
-                        <div class="absolute top-3 left-3">
-                            <span class="px-2 py-1 bg-white/95 dark:bg-slate-900/95 backdrop-blur text-[10px] font-bold uppercase tracking-wider rounded border border-gray-200 dark:border-slate-600 text-blue-600">
-                                <i class="fas fa-chart-bar mr-1"></i> Data Analysis
-                            </span>
+                    <a href="https://daiki-ncu-2024.github.io/mypage.html" target="_blank" class="block">
+                        <div class="relative h-52 overflow-hidden bg-slate-100 dark:bg-slate-700 border-b border-gray-100 dark:border-slate-700">
+                            <img src="data_analysis.png" alt="2024 Project" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/600x400/3b82f6/white?text=Economics+Data';">
+                            <div class="absolute top-3 left-3">
+                                <span class="px-2 py-1 bg-white/95 dark:bg-slate-900/95 backdrop-blur text-[10px] font-bold uppercase tracking-wider rounded border border-gray-200 dark:border-slate-600 text-blue-600">
+                                    <i class="fas fa-chart-bar mr-1"></i> Data Analysis
+                                </span>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                     <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">2024年のプロジェクト</h3>
+                        <a href="https://daiki-ncu-2024.github.io/mypage.html" target="_blank" class="block">
+                            <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">2024年のプロジェクト</h3>
+                        </a>
                         <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-1 leading-relaxed">
                             経済データを収集・分析し、トレンドを可視化。Python(Pandas)を使用し、統計的なアプローチで課題解決に取り組みました。
                         </p>
                         <div class="mt-auto pt-4 border-t border-gray-100 dark:border-slate-700/50 flex justify-between items-center">
                             <span class="text-xs text-gray-400 font-mono bg-gray-100 dark:bg-slate-700 px-2 py-1 rounded">Python / Pandas</span>
-                            <a href="https://daiki-ncu-2024.github.io/mypage.html" class="text-sm font-bold text-primary hover:text-blue-700 transition-colors group-hover:translate-x-1 duration-300 inline-flex items-center">
+                            <a href="https://daiki-ncu-2024.github.io/mypage.html" target="_blank" class="text-sm font-bold text-primary hover:text-blue-700 transition-colors group-hover:translate-x-1 duration-300 inline-flex items-center">
                                 View <i class="fas fa-arrow-right ml-1 text-xs"></i>
                             </a>
                         </div>
@@ -269,23 +226,27 @@
 
                 <!-- 作品2: チャットボット -->
                 <article class="group bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 border border-gray-200 dark:border-slate-700 flex flex-col">
-                    <div class="relative h-52 overflow-hidden bg-slate-100 dark:bg-slate-700 border-b border-gray-100 dark:border-slate-700">
-                        <img src="chatbot.png" alt="Chatbot" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/ec4899/white?text=AI+Chatbot';">
-                        <div class="absolute top-3 left-3">
-                            <span class="px-2 py-1 bg-white/95 dark:bg-slate-900/95 backdrop-blur text-[10px] font-bold uppercase tracking-wider rounded border border-gray-200 dark:border-slate-600 text-pink-500">
-                                <i class="fas fa-robot mr-1"></i> AI Application
-                            </span>
+                    <a href="https://udify.app/chat/8re711ITHf0CKvjr" target="_blank" class="block">
+                        <div class="relative h-52 overflow-hidden bg-slate-100 dark:bg-slate-700 border-b border-gray-100 dark:border-slate-700">
+                            <img src="chatbot.png" alt="Chatbot" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/600x400/ec4899/white?text=AI+Chatbot';">
+                            <div class="absolute top-3 left-3">
+                                <span class="px-2 py-1 bg-white/95 dark:bg-slate-900/95 backdrop-blur text-[10px] font-bold uppercase tracking-wider rounded border border-gray-200 dark:border-slate-600 text-pink-500">
+                                    <i class="fas fa-robot mr-1"></i> AI Application
+                                </span>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                     <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">チャットボット開発</h3>
+                        <a href="https://udify.app/chat/8re711ITHf0CKvjr" target="_blank" class="block">
+                            <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">チャットボット開発</h3>
+                        </a>
                         <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-1 leading-relaxed">
                             特定のドメイン知識を学習させたAIチャットボット。ユーザーの質問に対して自然な対話形式で応答します。
                         </p>
                         <div class="mt-auto pt-4 border-t border-gray-100 dark:border-slate-700/50 flex justify-between items-center">
                             <span class="text-xs text-gray-400 font-mono bg-gray-100 dark:bg-slate-700 px-2 py-1 rounded">LLM / Web App</span>
-                            <a href="https://udify.app/chat/8re711ITHf0CKvjr" class="text-sm font-bold text-primary hover:text-blue-700 transition-colors group-hover:translate-x-1 duration-300 inline-flex items-center">
+                            <a href="https://udify.app/chat/8re711ITHf0CKvjr" target="_blank" class="text-sm font-bold text-primary hover:text-blue-700 transition-colors group-hover:translate-x-1 duration-300 inline-flex items-center">
                                 Try App <i class="fas fa-arrow-right ml-1 text-xs"></i>
                             </a>
                         </div>
@@ -294,23 +255,27 @@
 
                 <!-- 作品3: ブログ -->
                 <article class="group bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 border border-gray-200 dark:border-slate-700 flex flex-col">
-                    <div class="relative h-52 overflow-hidden bg-slate-100 dark:bg-slate-700 border-b border-gray-100 dark:border-slate-700">
-                        <img src="blogziburi.png" alt="IT Blog" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/10b981/white?text=Tech+Blog';">
-                        <div class="absolute top-3 left-3">
-                            <span class="px-2 py-1 bg-white/95 dark:bg-slate-900/95 backdrop-blur text-[10px] font-bold uppercase tracking-wider rounded border border-gray-200 dark:border-slate-600 text-green-600">
-                                <i class="fas fa-pen-nib mr-1"></i> Tech Blog
-                            </span>
+                    <a href="https://ideamarkets.info/archives/author/dyamaguchi" target="_blank" class="block">
+                        <div class="relative h-52 overflow-hidden bg-slate-100 dark:bg-slate-700 border-b border-gray-100 dark:border-slate-700">
+                            <img src="blogziburi.png" alt="IT Blog" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/600x400/10b981/white?text=Tech+Blog';">
+                            <div class="absolute top-3 left-3">
+                                <span class="px-2 py-1 bg-white/95 dark:bg-slate-900/95 backdrop-blur text-[10px] font-bold uppercase tracking-wider rounded border border-gray-200 dark:border-slate-600 text-green-600">
+                                    <i class="fas fa-pen-nib mr-1"></i> Tech Blog
+                                </span>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                     <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">IT技術ブログ</h3>
+                        <a href="https://ideamarkets.info/archives/author/dyamaguchi" target="_blank" class="block">
+                            <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">IT技術ブログ</h3>
+                        </a>
                         <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-1 leading-relaxed">
                             日々の学習内容や技術的なつまづき、解決策をアウトプット。知識の定着と共有を目的に運営しています。
                         </p>
                         <div class="mt-auto pt-4 border-t border-gray-100 dark:border-slate-700/50 flex justify-between items-center">
                             <span class="text-xs text-gray-400 font-mono bg-gray-100 dark:bg-slate-700 px-2 py-1 rounded">WordPress</span>
-                            <a href="https://ideamarkets.info/archives/author/dyamaguchi" class="text-sm font-bold text-primary hover:text-blue-700 transition-colors group-hover:translate-x-1 duration-300 inline-flex items-center">
+                            <a href="https://ideamarkets.info/archives/author/dyamaguchi" target="_blank" class="text-sm font-bold text-primary hover:text-blue-700 transition-colors group-hover:translate-x-1 duration-300 inline-flex items-center">
                                 Read <i class="fas fa-arrow-right ml-1 text-xs"></i>
                             </a>
                         </div>
@@ -319,24 +284,28 @@
 
                 <!-- 作品4: 卒業制作 -->
                 <article class="group bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 border border-gray-200 dark:border-slate-700 flex flex-col">
-                    <div class="relative h-52 overflow-hidden bg-slate-50 dark:bg-slate-700/50 flex items-center justify-center border-b border-gray-100 dark:border-slate-700">
-                        <i class="fas fa-graduation-cap text-5xl text-gray-300 dark:text-gray-600 group-hover:scale-110 transition-transform duration-500"></i>
-                        <div class="absolute top-3 left-3">
-                            <span class="px-2 py-1 bg-white/95 dark:bg-slate-900/95 backdrop-blur text-[10px] font-bold uppercase tracking-wider rounded border border-gray-200 dark:border-slate-600 text-purple-600">
-                                <i class="fas fa-scroll mr-1"></i> Thesis
-                            </span>
+                    <a href="https://daiki-ncu-2024.github.io/macro_sim_ver2/index.html" target="_blank" class="block">
+                        <div class="relative h-52 overflow-hidden bg-slate-100 dark:bg-slate-700 border-b border-gray-100 dark:border-slate-700">
+                            <img src="卒業制作.png" alt="卒業制作" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-3 left-3">
+                                <span class="px-2 py-1 bg-white/95 dark:bg-slate-900/95 backdrop-blur text-[10px] font-bold uppercase tracking-wider rounded border border-gray-200 dark:border-slate-600 text-purple-600">
+                                    <i class="fas fa-scroll mr-1"></i> Thesis
+                                </span>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                     <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">卒業制作（準備中）</h3>
+                        <a href="https://daiki-ncu-2024.github.io/macro_sim_ver2/index.html" target="_blank" class="block">
+                            <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">卒業制作</h3>
+                        </a>
                         <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-1 leading-relaxed">
-                            これまでの学習の集大成として、〇〇をテーマに研究・開発を行っています。
+                            マクロ経済の動向をシミュレーションするWebアプリケーション。これまでの学習の集大成として開発しました。
                         </p>
                         <div class="mt-auto pt-4 border-t border-gray-100 dark:border-slate-700/50 flex justify-between items-center">
-                            <span class="text-xs text-gray-400 font-mono bg-gray-100 dark:bg-slate-700 px-2 py-1 rounded">Research</span>
-                            <span class="text-sm font-medium text-gray-400 cursor-not-allowed">
-                                Coming Soon...
-                            </span>
+                            <span class="text-xs text-gray-400 font-mono bg-gray-100 dark:bg-slate-700 px-2 py-1 rounded">Web App / Sim</span>
+                            <a href="https://daiki-ncu-2024.github.io/macro_sim_ver2/index.html" target="_blank" class="text-sm font-bold text-primary hover:text-blue-700 transition-colors group-hover:translate-x-1 duration-300 inline-flex items-center">
+                                View <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                            </a>
                         </div>
                     </div>
                 </article>
@@ -344,8 +313,8 @@
                 <!-- 作品5: Vlog -->
                 <article class="md:col-span-2 group bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 border border-gray-200 dark:border-slate-700">
                     <div class="flex flex-col md:flex-row h-full">
-                        <div class="md:w-2/5 relative h-56 md:h-auto overflow-hidden bg-slate-800">
-                            <img src="vlog_thumbnail.jpg" alt="Vlog" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 opacity-90"
+                        <a href="https://www.youtube.com/watch?v=qBM2lZOxJsk" target="_blank" class="block md:w-2/5 relative h-56 md:h-auto overflow-hidden bg-slate-800">
+                            <img src="https://i.ytimg.com/vi/qBM2lZOxJsk/hqdefault.jpg" alt="Vlog" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 opacity-90"
                                  onerror="this.onerror=null; this.src='https://placehold.co/800x600/f59e0b/white?text=Vlog+Movie';">
                             <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
                                 <div class="w-14 h-14 bg-white/90 rounded-full flex items-center justify-center pl-1 shadow-lg group-hover:scale-110 transition-transform">
@@ -357,15 +326,17 @@
                                     <i class="fas fa-video mr-1"></i> Vlog
                                 </span>
                             </div>
-                        </div>
+                        </a>
                         <div class="md:w-3/5 p-8 flex flex-col justify-center">
-                            <h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">ゼミ旅行 Vlog</h3>
+                            <a href="https://www.youtube.com/watch?v=qBM2lZOxJsk" target="_blank" class="block">
+                                <h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">ゼミ旅行 Vlog</h3>
+                            </a>
                             <p class="text-gray-600 dark:text-gray-400 text-sm mb-5 leading-relaxed">
                                 ゼミ活動の一環として訪れた地域の記録をVlog形式でまとめました。撮影から編集までを担当し、現地の空気感を伝えることに注力しました。
                             </p>
                             <div class="mt-auto flex justify-between items-center">
                                 <span class="text-xs text-gray-400 font-mono bg-gray-100 dark:bg-slate-700 px-2 py-1 rounded">Premiere Pro</span>
-                                <a href="#" class="text-sm font-bold text-primary hover:text-blue-700 transition-colors inline-flex items-center">
+                                <a href="https://www.youtube.com/watch?v=qBM2lZOxJsk" target="_blank" class="text-sm font-bold text-primary hover:text-blue-700 transition-colors inline-flex items-center">
                                     Watch Video <i class="fas fa-external-link-alt ml-2 text-xs"></i>
                                 </a>
                             </div>

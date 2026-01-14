@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブログ集 - 山口大輝 Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#2563eb',
+                        dark: '#0f172a',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: "Noto Sans JP", sans-serif; }
+        .bg-tech-economy {
+            background-color: #f0f4f8;
+            background-image: 
+                linear-gradient(to right, rgba(37, 99, 235, 0.08) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(37, 99, 235, 0.08) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        .dark .bg-tech-economy {
+            background-color: #0b1120;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="bg-tech-economy text-slate-800 dark:text-slate-200 min-h-screen">
+    <main class="p-4 md:p-8 lg:p-12">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-4xl font-bold mb-4 text-slate-900 dark:text-white">ブログ集</h1>
+            <p class="text-gray-500 dark:text-gray-400 mb-8">学習した内容や技術的な知見をまとめた記事一覧です。</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                <!-- 記事1: ゼミ紹介 -->
+                <article class="group bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 border border-gray-200 dark:border-slate-700 flex flex-col">
+                    <a href="https://ideamarkets.info/archives/1203" target="_blank" class="block">
+                        <div class="relative h-52 overflow-hidden bg-slate-100 dark:bg-slate-700 border-b border-gray-100 dark:border-slate-700">
+                            <img src="blogziburi.png" alt="ゼミ紹介" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-3 left-3">
+                                <span class="px-2 py-1 bg-white/95 dark:bg-slate-900/95 backdrop-blur text-[10px] font-bold uppercase tracking-wider rounded border border-gray-200 dark:border-slate-600 text-green-600">
+                                    <i class="fas fa-pen-nib mr-1"></i> ゼミ活動
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <a href="https://ideamarkets.info/archives/1203" target="_blank" class="block">
+                            <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">ゼミ紹介：学びと活動の軌跡</h3>
+                        </a>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-1 leading-relaxed">
+                            所属するゼミの概要、日々の活動内容、そしてそこで得られる学びについて詳しく紹介しています。
+                        </p>
+                        <div class="mt-auto pt-4 border-t border-gray-100 dark:border-slate-700/50 flex justify-between items-center">
+                            <span class="text-xs text-gray-400 font-mono bg-gray-100 dark:bg-slate-700 px-2 py-1 rounded">紹介 / 活動</span>
+                            <a href="https://ideamarkets.info/archives/1203" target="_blank" class="text-sm font-bold text-primary hover:text-blue-700 transition-colors group-hover:translate-x-1 duration-300 inline-flex items-center">
+                                Read Article <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 記事2: 産学連携 -->
+                <article class="group bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 border border-gray-200 dark:border-slate-700 flex flex-col">
+                    <a href="https://ideamarkets.info/archives/1217" target="_blank" class="block">
+                        <div class="relative h-52 overflow-hidden bg-slate-100 dark:bg-slate-700 border-b border-gray-100 dark:border-slate-700">
+                            <img src="blogziburi.png" alt="産学連携" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-3 left-3">
+                                <span class="px-2 py-1 bg-white/95 dark:bg-slate-900/95 backdrop-blur text-[10px] font-bold uppercase tracking-wider rounded border border-gray-200 dark:border-slate-600 text-green-600">
+                                    <i class="fas fa-handshake mr-1"></i> 産学連携
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <a href="https://ideamarkets.info/archives/1217" target="_blank" class="block">
+                            <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">産学連携プロジェクト：実践から学ぶ経済学</h3>
+                        </a>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-1 leading-relaxed">
+                            ゼミで取り組んだ企業との連携プロジェクトについて、その目的、プロセス、そして成果をまとめています。
+                        </p>
+                        <div class="mt-auto pt-4 border-t border-gray-100 dark:border-slate-700/50 flex justify-between items-center">
+                            <span class="text-xs text-gray-400 font-mono bg-gray-100 dark:bg-slate-700 px-2 py-1 rounded">プロジェクト / 実践</span>
+                            <a href="https://ideamarkets.info/archives/1217" target="_blank" class="text-sm font-bold text-primary hover:text-blue-700 transition-colors group-hover:translate-x-1 duration-300 inline-flex items-center">
+                                Read Article <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 記事3: 消費関数の実証分析 -->
+                <article class="group bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 border border-gray-200 dark:border-slate-700 flex flex-col">
+                    <a href="https://ideamarkets.info/archives/2591" target="_blank" class="block">
+                        <div class="relative h-52 overflow-hidden bg-slate-100 dark:bg-slate-700 border-b border-gray-100 dark:border-slate-700">
+                            <img src="blogziburi.png" alt="消費関数の実証分析" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-3 left-3">
+                                <span class="px-2 py-1 bg-white/95 dark:bg-slate-900/95 backdrop-blur text-[10px] font-bold uppercase tracking-wider rounded border border-gray-200 dark:border-slate-600 text-green-600">
+                                    <i class="fas fa-chart-line mr-1"></i> データ分析
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <a href="https://ideamarkets.info/archives/2591" target="_blank" class="block">
+                            <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">消費関数の実証分析：データで読み解く経済行動</h3>
+                        </a>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-1 leading-relaxed">
+                            経済学における消費関数について、実際のデータを用いた実証分析の手法と結果を解説しています。
+                        </p>
+                        <div class="mt-auto pt-4 border-t border-gray-100 dark:border-slate-700/50 flex justify-between items-center">
+                            <span class="text-xs text-gray-400 font-mono bg-gray-100 dark:bg-slate-700 px-2 py-1 rounded">経済学 / 分析</span>
+                            <a href="https://ideamarkets.info/archives/2591" target="_blank" class="text-sm font-bold text-primary hover:text-blue-700 transition-colors group-hover:translate-x-1 duration-300 inline-flex items-center">
+                                Read Article <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="mt-12">
+                <a href="index.html" class="text-primary hover:underline">
+                    <i class="fas fa-arrow-left mr-2"></i>ポートフォリオに戻る
+                </a>
+            </div>
+        </div>
+    </main>
+    <script>
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        }
+        initTheme();
+    </script>
+</body>
+</html>

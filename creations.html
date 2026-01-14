@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>制作物 - 山口大輝 Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#2563eb',
+                        dark: '#0f172a',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: "Noto Sans JP", sans-serif; }
+        .bg-tech-economy {
+            background-color: #f0f4f8;
+            background-image: 
+                linear-gradient(to right, rgba(37, 99, 235, 0.08) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(37, 99, 235, 0.08) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        .dark .bg-tech-economy {
+            background-color: #0b1120;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="bg-tech-economy text-slate-800 dark:text-slate-200 min-h-screen">
+    <main class="p-4 md:p-8 lg:p-12">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-4xl font-bold mb-4 text-slate-900 dark:text-white">制作物</h1>
+            <p class="text-gray-500 dark:text-gray-400 mb-8">過去に制作したWebアプリやゲームなどをまとめています。</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                <!-- チャットボット開発 -->
+                <article class="group bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 border border-gray-200 dark:border-slate-700 flex flex-col">
+                    <a href="https://udify.app/chat/8re711ITHf0CKvjr" target="_blank" class="block">
+                        <div class="relative h-52 overflow-hidden bg-slate-100 dark:bg-slate-700 border-b border-gray-100 dark:border-slate-700">
+                            <img src="chatbot.png" alt="Chatbot" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/600x400/ec4899/white?text=AI+Chatbot';">
+                            <div class="absolute top-3 left-3">
+                                <span class="px-2 py-1 bg-white/95 dark:bg-slate-900/95 backdrop-blur text-[10px] font-bold uppercase tracking-wider rounded border border-gray-200 dark:border-slate-600 text-pink-500">
+                                    <i class="fas fa-robot mr-1"></i> AI Application
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <a href="https://udify.app/chat/8re711ITHf0CKvjr" target="_blank" class="block">
+                            <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">チャットボット開発</h3>
+                        </a>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-1 leading-relaxed">
+                            特定のドメイン知識を学習させたAIチャットボット。ユーザーの質問に対して自然な対話形式で応答します。
+                        </p>
+                        <div class="mt-auto pt-4 border-t border-gray-100 dark:border-slate-700/50 flex justify-between items-center">
+                            <span class="text-xs text-gray-400 font-mono bg-gray-100 dark:bg-slate-700 px-2 py-1 rounded">LLM / Web App</span>
+                            <a href="https://udify.app/chat/8re711ITHf0CKvjr" target="_blank" class="text-sm font-bold text-primary hover:text-blue-700 transition-colors group-hover:translate-x-1 duration-300 inline-flex items-center">
+                                Try App <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 他の制作物（準備中） -->
+                <div class="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-12 min-h-[300px] flex items-center justify-center">
+                    <p class="text-gray-400">ここに他の制作物が追加されます。準備中...</p>
+                </div>
+            </div>
+
+            <div class="mt-12">
+                <a href="index.html" class="text-primary hover:underline">
+                    <i class="fas fa-arrow-left mr-2"></i>ポートフォリオに戻る
+                </a>
+            </div>
+        </div>
+    </main>
+    <script>
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        }
+        initTheme();
+    </script>
+</body>
+</html>

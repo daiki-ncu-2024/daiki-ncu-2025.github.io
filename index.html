@@ -100,18 +100,23 @@
         .dark .markdown-body strong { color: #60a5fa; }
     </style>
 </head>
-<body class="bg-tech-economy text-slate-800 dark:text-slate-200 transition-colors duration-300 h-screen overflow-hidden flex flex-col md:flex-row">
+<body class="bg-tech-economy text-slate-800 dark:text-slate-200 transition-colors duration-300 h-screen overflow-hidden flex">
+
+    <!-- Mobile Overlay -->
+    <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-30 hidden md:hidden" onclick="toggleMenu()"></div>
 
     <!-- 左サイドバー（プロフィール） -->
-    <!-- md以上の場合は幅を固定(初期値)、JavaScriptで制御 -->
-    <aside id="sidebar" class="w-full md:w-[360px] bg-white/95 dark:bg-slate-800/95 backdrop-blur-md border-r border-gray-200 dark:border-slate-700 overflow-y-auto custom-scroll z-20 flex-shrink-0 shadow-xl shadow-blue-900/5 transition-colors duration-300">
+    <aside id="sidebar" class="absolute md:relative top-0 left-0 w-[320px] h-full bg-white/95 dark:bg-slate-800/95 backdrop-blur-md border-r border-gray-200 dark:border-slate-700 overflow-y-auto custom-scroll z-40 flex-shrink-0 shadow-xl shadow-blue-900/5 transition-transform duration-300 -translate-x-full md:translate-x-0">
         <div class="p-8 flex flex-col min-h-full">
             
-            <!-- ダークモード切替 -->
-            <div class="flex justify-end md:justify-start mb-6">
+            <!-- ヘッダー：ダークモード切替＆閉じるボタン -->
+            <div class="flex justify-between items-center mb-6">
                 <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors text-gray-500 dark:text-gray-400">
                     <i class="fas fa-moon dark:hidden"></i>
                     <i class="fas fa-sun hidden dark:block"></i>
+                </button>
+                <button onclick="toggleMenu()" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors text-gray-500 dark:text-gray-400 md:hidden">
+                    <i class="fas fa-times text-xl"></i>
                 </button>
             </div>
 
@@ -183,12 +188,18 @@
     <main class="flex-1 overflow-y-auto custom-scroll relative z-10 p-4 md:p-8 lg:p-12">
         
         <div class="max-w-7xl mx-auto pb-20">
-            <header class="mb-8 md:mb-12 flex items-end border-b-2 border-primary/20 pb-4">
-                <div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">Portfolio</h2>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">
-                        <i class="fas fa-folder-open mr-1"></i> ゼミ活動・個人制作アーカイブ
-                    </p>
+            <header class="mb-8 md:mb-12 flex items-center justify-between border-b-2 border-primary/20 pb-4">
+                <div class="flex items-center">
+                    <!-- Hamburger Menu Button -->
+                    <button onclick="toggleMenu()" class="md:hidden p-2 mr-2 rounded-md hover:bg-gray-100 dark:hover:bg-slate-700">
+                        <i class="fas fa-bars text-xl text-slate-600 dark:text-slate-300"></i>
+                    </button>
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">Portfolio</h2>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">
+                            <i class="fas fa-folder-open mr-1"></i> ゼミ活動・個人制作アーカイブ
+                        </p>
+                    </div>
                 </div>
             </header>
 
@@ -381,6 +392,16 @@
         initTheme();
 
         // ------------------------------
+        // Mobile Menu Toggle
+        // ------------------------------
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('mobile-overlay');
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        }
+
+        // ------------------------------
         // リサイズ機能 (Resizer)
         // ------------------------------
         document.addEventListener('DOMContentLoaded', () => {
@@ -388,28 +409,26 @@
             const resizer = document.getElementById('resizer');
             let isResizing = false;
 
-            // マウスダウンでドラッグ開始
-            resizer.addEventListener('mousedown', (e) => {
-                isResizing = true;
-                resizer.classList.add('resizing');
-                document.body.style.cursor = 'col-resize';
-                document.body.classList.add('select-none'); // テキスト選択防止
-            });
+            if (resizer) {
+                resizer.addEventListener('mousedown', (e) => {
+                    isResizing = true;
+                    resizer.classList.add('resizing');
+                    document.body.style.cursor = 'col-resize';
+                    document.body.classList.add('select-none'); // テキスト選択防止
+                });
+            }
 
-            // マウス移動でリサイズ実行
             document.addEventListener('mousemove', (e) => {
                 if (!isResizing) return;
                 
-                // 幅の計算（最小幅250px、最大幅600px程度に制限）
                 const newWidth = Math.max(250, Math.min(e.clientX, 600));
                 sidebar.style.width = `${newWidth}px`;
             });
 
-            // マウスアップでドラッグ終了
             document.addEventListener('mouseup', () => {
                 if (isResizing) {
                     isResizing = false;
-                    resizer.classList.remove('resizing');
+                    if(resizer) resizer.classList.remove('resizing');
                     document.body.style.cursor = '';
                     document.body.classList.remove('select-none');
                 }
